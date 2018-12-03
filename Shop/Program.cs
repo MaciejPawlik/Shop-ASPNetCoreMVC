@@ -14,11 +14,11 @@ namespace Shop
     {
         public static void Main(string[] args)
         {
-            CreateWebHostBuilder(args).Build().Run();
+            CreateWebHostBuilder(args).Build().Run(); // conf host i serwer, i potok przetwarzania żądania
         }
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>();
+            WebHost.CreateDefaultBuilder(args) // conf app z ustawieniami domyslnymi
+                .UseStartup<Startup>(); // klasa uruchomienuowa, config appki
     }
 }
