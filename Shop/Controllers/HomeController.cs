@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Shop.Models;
+using Shop.ViewModels;
+using System.Linq;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -16,7 +18,14 @@ namespace Shop.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
-            return View();
+            var cars = _carRepository.GetAllCars().OrderBy(c => c.Brand);
+
+            var homeVM = new HomeVM()
+            {
+                Title = "Przeglad samochodow",
+                Cars = cars.ToList()
+            };
+            return View(homeVM);
         }
     }
 }

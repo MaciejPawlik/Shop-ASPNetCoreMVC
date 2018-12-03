@@ -1,0 +1,20 @@
+﻿@model Shop.ViewModels.HomeVM
+    
+<h2>@Model.Title</h2>
+
+@foreach (var car in Model.Cars)
+{
+    <ul>
+        <li>@car.Brand</li>
+        <li>@car.Model</li>
+        <li>@car.Year</li>
+        <li>@car.Power</li>
+        <li>@car.Volume</li>
+        <li>@car.Distance</li>
+        <li>@car.Fuel</li>
+        <li>@car.Description</li>
+        <li>@car.Price.ToString("c")</li> @*currency format*@
+    </ul>
+}
+
+
