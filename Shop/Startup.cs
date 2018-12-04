@@ -21,6 +21,7 @@ namespace Shop
         { // tu rejestracja usług systemowych i własnych, do kontenera wstrzykkiwania zależności
             services.AddDbContext<AppDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddTransient<ICarRepository, CarRepository>(); // kiedy żadana ICarRepo, zostanie zwrócone !!nowa!! instancja Mock; mogłby być AddSingelton
+            services.AddTransient<IOpinionRepository, OpinionRepository>(); 
             services.AddMvc(); // app wie o MVC :D
         }
 
