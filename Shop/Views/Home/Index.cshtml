@@ -1,11 +1,13 @@
-﻿@model Shop.ViewModels.HomeVM
+﻿@model HomeVM
     
 <h2>@Model.Title</h2>
 
 @foreach (var car in Model.Cars)
 {
+<h4>
+    <a asp-controller="Home" asp-action="Details" asp-route-id="@car.Id">@car.Brand</a>
+</h4>
     <ul>
-        <li>@car.Brand</li>
         <li>@car.Model</li>
         <li>@car.Year</li>
         <li>@car.Power</li>

@@ -9,7 +9,7 @@ namespace Shop
 {
     public class Startup
     {
-        public IConfiguration Configuration { get;  } // zawiera informacje odczytan przez Program.cs 
+        public IConfiguration Configuration { get; } // zawiera informacje odczytan przez Program.cs 
 
         public Startup(IConfiguration configuration)
         {
@@ -30,7 +30,10 @@ namespace Shop
             app.UseDeveloperExceptionPage(); // strona śmierci... zółta :D, tylko dla fazy development
             app.UseStatusCodePages(); // obsługa nagłowków tekstowych kodów statusu np. 400, 500
             app.UseStaticFiles(); // umożliwia obsługą plików statycznych js, obrazy 
-            app.UseMvcWithDefaultRoute(); // powinno być na końcu
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(name: "default", template: "{controller=Home}/{action=Index}/{id?}");
+            }); // powinno być na końcu
         }
     }
 }

@@ -1,0 +1,15 @@
+﻿@model Car
+
+<h3> @Model.Brand - @Model.Model</h3>
+
+<div class="thumbnail">
+    <ul>
+        <li>@Model.Year</li>
+        <li>@Model.Power</li>
+        <li>@Model.Volume</li>
+        <li>@Model.Distance</li>
+        <li>@Model.Fuel</li>
+        <li>@Model.Description</li>
+        <li>@Model.Price.ToString("c")</li> @*currency format*@
+    </ul>
+</div>
